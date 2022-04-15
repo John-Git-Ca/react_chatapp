@@ -1,0 +1,17 @@
+.msgbox {
+  margin: 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+}
+.msg {
+  border-radius: 3px;
+  background-color: rgb(235, 224, 209);
+  max-width: 90%;
+  padding: 3px;
+  word-wrap: break-word;
+}
+
+.justfiyend {
+  justify-content: flex-end;
+}

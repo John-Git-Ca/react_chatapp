@@ -6,8 +6,8 @@ const Join = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const handleSubmit = () => {
-    console.log(name);
-    console.log(room);
+    // console.log(name);
+    // console.log(room);
   };
   return (
     <Row
@@ -31,7 +31,7 @@ const Join = () => {
           <Form.Group>
             <Link
               onClick={(e) => (!name || !room ? e.preventDefault() : null)}
-              to={`/chat?name=${name}&room=${room}`}
+              to={`/chat/${name}/${room}`}
             >
               <Button className="m-2" onClick={handleSubmit}>
                 Sign in
