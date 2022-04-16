@@ -26,7 +26,10 @@ const Join = () => {
           </Form.Group>
           <Form.Group>
             <Form.Label>Room</Form.Label>
-            <Form.Control onChange={(e) => setRoom(e.target.value)} />
+            <Form.Control
+              type="text"
+              onChange={(e) => setRoom(e.target.value)}
+            />
           </Form.Group>
           <Form.Group>
             <Link
