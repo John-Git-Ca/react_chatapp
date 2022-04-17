@@ -13,12 +13,10 @@ const Chat = () => {
   const { name, room } = useParams();
   const [users, setUsers] = useState([]);
   const [editMessage, setEditMessage] = useState('');
-  const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     socket = io(ENDPOINT);
-    console.log(socket);
     socket.emit('join', { name, room }, (error) => {
       if (error) {
         alert(error);
@@ -33,23 +31,19 @@ const Chat = () => {
   }, [name, room]);
 
   useEffect(() => {
-    console.log(messages);
     socket.on('message', (msg) => {
       setMessages((messages) => [...messages, msg]);
     });
     socket.on('roomData', ({ users }) => {
       setUsers(users);
     });
-    console.log(users);
   }, []);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    console.log(editMessage);
     if (editMessage) {
       socket.emit('sendMessage', editMessage, () => setEditMessage(''));
     }
-    console.log(users);
   };
 
   return (
